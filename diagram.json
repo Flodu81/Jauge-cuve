@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "author": "Florian Tisse",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": -4.8, "left": -0.5, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -171.3,
+      "left": 82.3,
+      "attrs": { "distance": "51" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd2",
+      "top": 102.4,
+      "left": 178.4,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "ultrasonic1:TRIG", "nano:9", "green", [ "v38.4", "h-115.6" ] ],
+    [ "nano:10", "ultrasonic1:ECHO", "orange", [ "v-48", "h135.2" ] ],
+    [ "ultrasonic1:VCC", "nano:5V", "red", [ "v19.2", "h38.4", "v134.4", "h-67.2" ] ],
+    [ "nano:GND.1", "ultrasonic1:GND", "black", [ "v9.6", "h39.6" ] ],
+    [ "lcd2:GND", "nano:GND.1", "black", [ "h-38.4" ] ],
+    [ "nano:5V", "lcd2:VCC", "red", [ "v86.4", "h9.6" ] ],
+    [ "lcd2:SDA", "nano:A4", "gold", [ "h-96", "v-9.4" ] ],
+    [ "lcd2:SCL", "nano:A5", "blue", [ "h-86.4", "v0.3" ] ]
+  ],
+  "dependencies": {}
+}
